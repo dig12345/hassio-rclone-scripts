@@ -25,9 +25,9 @@ body:
     attributes:
       label: What version of Rclone Backup has the issue?
       description: >
-        Can be found in: [Settings -> Add-ons -> Rclone Backup](https://my.home-assistant.io/redirect/supervisor_addon/?repository_url=https%3A%2F%2Fgithub.com%2Fjcwillox%2Fhassio-rclone-backup&addon=19a172aa_rclone_backup). The version will be displayed in first chip at the top.
+        Can be found in: [Settings -> Add-ons -> Rclone Backup](https://my.home-assistant.io/redirect/supervisor_addon/?repository_url=https%3A%2F%2Fgithub.com%2Fdig12345%2Fhassio-rclone-scripts&addon=19a172aa_rclone_backup). The version will be displayed in first chip at the top.
 
-        [![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?repository_url=https%3A%2F%2Fgithub.com%2Fjcwillox%2Fhassio-rclone-backup&addon=19a172aa_rclone_backup)
+        [![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?repository_url=https%3A%2F%2Fgithub.com%2Fdig12345%2Fhassio-rclone-scripts&addon=19a172aa_rclone_backup)
   - type: input
     id: ha_version
     attributes:

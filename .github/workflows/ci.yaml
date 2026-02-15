@@ -37,7 +37,7 @@ jobs:
       - name: "🚀 Process possible slug override"
         id: override
         run: |
-          echo "slug=hassio-rclone-backup" >> "$GITHUB_OUTPUT"
+          echo "slug=hassio-rclone-scripts" >> "$GITHUB_OUTPUT"
 
   lint-addon:
     name: Lint Add-on

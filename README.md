@@ -9,17 +9,17 @@ You can also directly sync your Home Configuration e.g. `/config`, `/share`, `/s
 
 The addon also supports monitoring rclone and configuring or exploring remotes through [rclone-webui-react](https://github.com/rclone/rclone-webui-react).
 
-![webui-example](https://github.com/jcwillox/hassio-rclone-backup/raw/main/example.png)
+![webui-example](https://github.com/dig12345/hassio-rclone-scripts/raw/main/example.png)
 
 ## Installation
 
-[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fjcwillox%2Fhassio-rclone-backup)
-[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?repository_url=https%3A%2F%2Fgithub.com%2Fjcwillox%2Fhassio-rclone-backup&addon=19a172aa_rclone_backup)
+[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fdig12345%2Fhassio-rclone-scripts)
+[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?repository_url=https%3A%2F%2Fgithub.com%2Fdig12345%2Fhassio-rclone-scripts&addon=19a172aa_rclone_backup)
 
 Add the repository URL under **Supervisor** → **Add-on store** → **⋮** → **Manage add-on repositories**
 
 ```
-https://github.com/jcwillox/hassio-rclone-backup
+https://github.com/dig12345/hassio-rclone-scripts
 ```
 
 ## Example
