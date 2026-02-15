@@ -1,6 +1,6 @@
 ---
 name: Rclone Backup
-version: 1.0.7
+version: 1.0.8
 slug: rclone_backup
 description: Automatically sync backup to remote locations using rclone
 arch:
