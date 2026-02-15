@@ -48,6 +48,7 @@ type JobConfig struct {
 	Name         string
 	Schedule     string
 	Command      string
+	Run          string   // when set, run this shell command instead of rclone
 	Source       string
 	Sources      []string
 	Destination  string
@@ -190,8 +191,12 @@ func LoadConfig() (*Config, error) {
 }
 
 func CheckJob(job JobConfig) error {
+	if job.Run != "" {
+		// Arbitrary shell command: no source/destination required
+		return nil
+	}
 	if len(job.Sources) == 0 {
-		return errors.New("at least 1 source must be specified")
+		return errors.New("at least 1 source must be specified, or set 'run' for a shell command")
 	}
 	for _, source := range job.Sources {
 		if err := CheckRemote(source); err != nil {
@@ -220,6 +225,18 @@ func CheckRemote(path string) error {
 		}
 	}
 	return nil
+}
+
+// JobInfoShell returns a short description for a run/shell job
+func JobInfoShell(job JobConfig) string {
+	snippet := job.Run
+	if len(snippet) > 60 {
+		snippet = snippet[:57] + "..."
+	}
+	if job.Name != "" {
+		return emerald.Cyan + "\"" + job.Name + "\"" + emerald.Reset + "; run: " + emerald.HighlightPath(snippet)
+	}
+	return "run: " + emerald.HighlightPath(snippet)
 }
 
 func JobInfo(job JobConfig, defaultName string, sourceDest ...string) string {

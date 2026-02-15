@@ -16,8 +16,12 @@ func PrintJobs(jobs []JobConfig) {
 		if len(job.Schedule) > lSchedule {
 			lSchedule = len(job.Schedule)
 		}
-		if len(job.Command) > lCommand {
-			lCommand = len(job.Command)
+		cmdLabel := job.Command
+		if job.Run != "" {
+			cmdLabel = "run"
+		}
+		if len(cmdLabel) > lCommand {
+			lCommand = len(cmdLabel)
 		}
 	}
 
@@ -28,8 +32,16 @@ func PrintJobs(jobs []JobConfig) {
 			job.Schedule = "@startup"
 		}
 		emerald.Print(job.Schedule, strings.Repeat(" ", lSchedule-len(job.Schedule)), " ")
-		emerald.Print(emerald.Yellow, job.Command, emerald.Reset, strings.Repeat(" ", lCommand-len(job.Command)), " ")
-		emerald.Println(JobInfo(job, ""))
+		cmdLabel := job.Command
+		if job.Run != "" {
+			cmdLabel = "run"
+		}
+		emerald.Print(emerald.Yellow, cmdLabel, emerald.Reset, strings.Repeat(" ", lCommand-len(cmdLabel)), " ")
+		if job.Run != "" {
+			emerald.Println(JobInfoShell(job))
+		} else {
+			emerald.Println(JobInfo(job, ""))
+		}
 	}
 }
 

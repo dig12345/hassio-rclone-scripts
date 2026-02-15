@@ -33,13 +33,18 @@ options:
       include: []
       exclude: []
       flags: {}
+    # Example: run arbitrary command on a schedule (uncomment to use)
+    # - name: Custom script
+    #   schedule: "0 5 * * *"
+    #   run: "/config/scripts/backup-custom.sh"
   dry_run: true
   config_path: "/homeassistant/rclone.conf"
 schema:
   jobs:
     - name: str?
       schedule: str?
-      command: str
+      command: str?
+      run: str?
       source: str?
       sources:
         - str?

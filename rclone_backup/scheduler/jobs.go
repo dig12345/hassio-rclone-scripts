@@ -11,6 +11,9 @@ import (
 
 // CreateJob create run job closure with the job config
 func CreateJob(job JobConfig) func() {
+	if job.Run != "" {
+		return func() { RunShellJob(job) }
+	}
 	return func() {
 		if len(job.Sources) > 1 && len(job.Destinations) > 1 {
 			// multiple destinations and multiple sources
@@ -51,6 +54,30 @@ func CreateJob(job JobConfig) func() {
 			RunJob(job, job.Source, job.Destination)
 		}
 	}
+}
+
+func RunShellJob(job JobConfig) {
+	Infoln("running", JobInfoShell(job))
+	start := time.Now()
+	emerald.Print(emerald.Blue)
+	cmd := exec.Command("sh", "-c", job.Run)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stdout
+	cmd.Stdin = os.Stdin
+	err := cmd.Run()
+	emerald.Print(emerald.Reset)
+	eventJob := job
+	if eventJob.Command == "" {
+		eventJob.Command = "run"
+	}
+	if err != nil {
+		msg := fmt.Sprintf("failed to run command: %s", err)
+		Errorln(msg)
+		FireJobEvent(EventJobFailed, eventJob, "", "", start, msg)
+		return
+	}
+	Infoln("finished in", boldCyan(FormatDuration(time.Since(start))))
+	FireJobEvent(EventJobSuccessful, eventJob, "", "", start, "")
 }
 
 func RunJob(job JobConfig, source string, destination string) {

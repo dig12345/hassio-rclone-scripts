@@ -133,7 +133,21 @@ Specify when the rclone backup should run using cron syntax. If the `schedule` o
 
 **Option:** `command`
 
-The rclone command to run e.g. `sync`, `copy`, `move`.
+The rclone command to run e.g. `sync`, `copy`, `move`. Not required when using `run`.
+
+**Option:** `run`
+
+Run an arbitrary shell command on the same cron schedule instead of rclone. When set, `command`, `sources`, and `destination` are not used. The command is executed with `sh -c`. Use this for custom scripts, one-off rclone invocations, or any other command.
+
+```yaml
+jobs:
+  - name: Daily custom script
+    schedule: "0 5 * * *"
+    run: "/config/scripts/backup-custom.sh"
+  - name: Rclone with extra options
+    schedule: "0 6 * * 0"
+    run: "rclone sync /backup remote:Backup --exclude '*.tmp' --verbose"
+```
 
 **Option:** `include`
 
