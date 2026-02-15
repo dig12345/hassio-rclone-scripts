@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+
+**Full Changelog**: [`v3.3.5...v1.0.4`](https://github.com/dig12345/hassio-rclone-scripts/compare/v3.3.5...v1.0.4)
+
 ## 3.3.5
 
 ### 📦 Build
