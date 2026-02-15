@@ -70,6 +70,8 @@ schema:
   no_slugify: bool?
   log_level: list(debug|info|warning|error|fatal)?
 image: ghcr.io/dig12345/hassio-rclone-scripts/{arch}
+ports:
+  8098/tcp: 8098
 devices:
   - /dev/fuse
 privileged:

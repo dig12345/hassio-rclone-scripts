@@ -179,6 +179,15 @@ List of flags to give the rclone command, applied globally to all jobs. For use 
 
 ---
 
+### Jobs UI – Run now
+
+Jobs can be run on demand for testing or one-off runs. Leave `schedule` empty for a job to run only when you trigger it (or at addon startup).
+
+- **Jobs page:** Open `http://<home-assistant-host>:8098` in your browser (replace with your HA hostname or IP). You’ll see all jobs with a **Run now** button next to each. Output appears in the addon log.
+- **API:** `GET /api/jobs` returns the job list (JSON). `POST /api/jobs/<index>/run` triggers that job (returns 202 immediately; the job runs in the background).
+
+Port **8098** is exposed by the addon so you can use the Jobs UI or call the API from scripts or REST commands.
+
 ### Configuring Rclone Remotes
 
 The addon now supports ingress and the Rclone Web UI, you can access this by clicking the **Open Web UI** button in the addon info panel. You do not need a username or password and can just click the login button. Then you can click **Configs** -> **Create new config** to create a new remote.
