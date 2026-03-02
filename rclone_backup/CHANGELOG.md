@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.9
+
+**Full Changelog**: [`v1.0.8...v1.0.9`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.0.8...v1.0.9)
+
 ## 1.0.8
 
 **Full Changelog**: [`v1.0.7...v1.0.8`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.0.7...v1.0.8)
