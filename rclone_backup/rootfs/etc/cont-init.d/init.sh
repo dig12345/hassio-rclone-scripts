@@ -15,3 +15,10 @@ elif bashio::config.has_value "config_path"; then
 fi
 
 echo -n "$CONFIG_PATH" > /var/run/s6/container_environment/RCLONE_CONFIG
+
+# Load fuse kernel module so Web UI mount works (privileged addon shares host kernel)
+if modprobe fuse 2>/dev/null; then
+  bashio::log.info "Loaded fuse kernel module"
+else
+  bashio::log.warning "Could not load fuse module (Web UI mount may fail); on the host run: modprobe fuse"
+fi

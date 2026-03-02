@@ -1,0 +1,5 @@
+#!/bin/sh
+# No-op so rclone doesn't fail with "xdg-open: executable file not found".
+# OAuth links are only valid inside the container; use rclone config or
+# rclone authorize on a machine with a browser, then copy the config.
+exit 0

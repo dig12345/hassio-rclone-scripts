@@ -41,9 +41,11 @@ ENV LANG=C.UTF-8
 ENV RCLONE_INSTALLED_VERSION=1.72.1
 # renovate: datasource=github-releases depName=rclone-webui packageName=rclone/rclone-webui-react
 ENV RCLONE_WEBUI_INSTALLED_VERSION=2.0.5
+# renovate: datasource=github-releases depName=restic packageName=restic/restic
+ENV RESTIC_INSTALLED_VERSION=0.17.3
 
-# Install fuse
-RUN apk add fuse \
+# Install fuse and kmod (so we can load fuse module on the host at startup)
+RUN apk add fuse kmod bzip2 \
     && sed -i 's/#user_allow_other/user_allow_other/' /etc/fuse.conf \
     && ln -s /bin/fusermount /bin/fusermount3
 
@@ -58,8 +60,9 @@ RUN curl -LJo /tmp/currentbuild.zip https://github.com/rclone/rclone-webui-react
     && rm -rf /tmp/*
 
 # Fix permissions
-RUN chmod a+x /etc/cont-init.d/*
-RUN chmod a+x /etc/services.d/*/*
+RUN chmod a+x /etc/cont-init.d/* \
+    && chmod a+x /etc/services.d/*/* \
+    && chmod a+x /usr/bin/xdg-open
 
 # Install requirements for add-on
 RUN if [ "${BUILD_ARCH}" = "armhf" ]; then \
@@ -80,6 +83,24 @@ RUN if [ "${BUILD_ARCH}" = "armhf" ]; then \
     && chmod 755 /usr/bin/rclone \
     && rm -rf /tmp/rclone* \
     && mkdir -p /root/.config/rclone
+
+# Install restic
+RUN if [ "${BUILD_ARCH}" = "armhf" ]; then \
+        curl -LJo /tmp/restic.bz2 https://github.com/restic/restic/releases/download/v"${RESTIC_INSTALLED_VERSION}"/restic_"${RESTIC_INSTALLED_VERSION}"_linux_arm.bz2; \
+    elif [ "${BUILD_ARCH}" = "armv7" ]; then \
+        curl -LJo /tmp/restic.bz2 https://github.com/restic/restic/releases/download/v"${RESTIC_INSTALLED_VERSION}"/restic_"${RESTIC_INSTALLED_VERSION}"_linux_arm.bz2; \
+    elif [ "${BUILD_ARCH}" = "aarch64" ]; then \
+        curl -LJo /tmp/restic.bz2 https://github.com/restic/restic/releases/download/v"${RESTIC_INSTALLED_VERSION}"/restic_"${RESTIC_INSTALLED_VERSION}"_linux_arm64.bz2; \
+    elif [ "${BUILD_ARCH}" = "i386" ]; then \
+        curl -LJo /tmp/restic.bz2 https://github.com/restic/restic/releases/download/v"${RESTIC_INSTALLED_VERSION}"/restic_"${RESTIC_INSTALLED_VERSION}"_linux_386.bz2; \
+    elif [ "${BUILD_ARCH}" = "amd64" ]; then \
+        curl -LJo /tmp/restic.bz2 https://github.com/restic/restic/releases/download/v"${RESTIC_INSTALLED_VERSION}"/restic_"${RESTIC_INSTALLED_VERSION}"_linux_amd64.bz2; \
+    else \
+        exit 1; \
+    fi \
+    && bzip2 -d /tmp/restic.bz2 \
+    && mv /tmp/restic /usr/bin/restic \
+    && chmod 755 /usr/bin/restic
 
 # add scheduler binary
 COPY --from=build /app/scheduler.bin /usr/bin/scheduler
