@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.3
+
+### 🐛 Bug Fixes
+
+* Set BACKREST_CONFIG env var to persist backrest settings ([47281dc](https://github.com/dig12345/hassio-rclone-scripts/commit/47281dc7a743e6fdc972e8783c4d382ec7205bc3))
+
+**Full Changelog**: [`v1.2.2...v1.2.3`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.2.2...v1.2.3)
+
 ## 1.2.2
 
 ### 🐛 Bug Fixes
