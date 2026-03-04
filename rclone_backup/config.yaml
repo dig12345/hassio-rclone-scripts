@@ -74,6 +74,7 @@ schema:
 image: ghcr.io/dig12345/hassio-rclone-scripts/{arch}
 ports:
   8098/tcp: 8098
+  8099/tcp: 8099
 devices:
   - /dev/fuse
 privileged:
