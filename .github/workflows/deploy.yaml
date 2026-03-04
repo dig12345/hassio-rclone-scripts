@@ -6,6 +6,11 @@ concurrency:
 on:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version tag to deploy (e.g. 1.1.0)"
+        required: true
 
 jobs:
   information:
@@ -40,7 +45,7 @@ jobs:
       - name: "ℹ️ Gather version and environment"
         id: release
         run: |
-          version="${{ github.event.release.tag_name }}"
+          version="${{ github.event.release.tag_name || inputs.version }}"
           version="${version,,}"
           version="${version#v}"
           echo "version=${version}" >> "$GITHUB_OUTPUT"

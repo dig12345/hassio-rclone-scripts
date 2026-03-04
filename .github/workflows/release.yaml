@@ -45,6 +45,7 @@ jobs:
           node-version: lts/*
 
       - name: "Release Package 📦"
+        id: release
         run: corepack enable && pnpm dlx @jcwillox/semantic-release-config
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -54,3 +55,13 @@ jobs:
           SEMANTIC_RELEASE_CMD_GENERATE_NOTES: "yq -i '.version = \"${nextRelease.version}\"' ${{ env.TARGET }}/config.yaml"
           SEMANTIC_RELEASE_GIT_ASSETS: '["${{ env.TARGET }}/CHANGELOG.md", "${{ env.TARGET }}/config.yaml"]'
           SEMANTIC_RELEASE_GIT_MESSAGE: "release: ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+
+      - name: "🚀 Trigger Deploy"
+        if: ${{ !inputs.draft }}
+        run: |
+          version=$(yq '.version' ${{ env.TARGET }}/config.yaml)
+          if [ -n "${version}" ]; then
+            gh workflow run deploy.yaml --ref "v${version}" -f version="${version}"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
