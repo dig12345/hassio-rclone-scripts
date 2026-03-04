@@ -39,6 +39,9 @@ options:
     #   run: "/config/scripts/backup-custom.sh"
   dry_run: true
   config_path: "/homeassistant/rclone.conf"
+  disable_backrest: false
+  backrest_port: 9898
+  backrest_data_path: "/share/backrest"
 schema:
   jobs:
     - name: str?
@@ -64,6 +67,9 @@ schema:
     - str?
   run_once: bool?
   config_path: str?
+  disable_backrest: bool?
+  backrest_port: int?
+  backrest_data_path: str?
   rclone_config: str?
   no_rename: bool?
   no_unrename: bool?
@@ -72,6 +78,7 @@ schema:
 image: ghcr.io/dig12345/hassio-rclone-scripts/{arch}
 ports:
   8098/tcp: 8098
+  9898/tcp: 9898
 devices:
   - /dev/fuse
 privileged:

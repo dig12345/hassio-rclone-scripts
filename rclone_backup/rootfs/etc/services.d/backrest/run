@@ -1,0 +1,37 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Start the Backrest web UI
+# s6-overlay docs: https://github.com/just-containers/s6-overlay
+# ==============================================================================
+
+# Check if backrest is installed (not available on i386)
+if ! command -v backrest &>/dev/null; then
+    bashio::log.warning "Backrest is not installed for this architecture, service disabled."
+    exec sleep infinity
+fi
+
+# Allow disabling backrest
+if bashio::config.true "disable_backrest"; then
+    bashio::log.info "Backrest is disabled (disable_backrest: true). Skipping."
+    exec sleep infinity
+fi
+
+BACKREST_PORT=9898
+if bashio::config.has_value "backrest_port"; then
+    BACKREST_PORT=$(bashio::config "backrest_port")
+fi
+
+BACKREST_DATA="/share/backrest"
+if bashio::config.has_value "backrest_data_path"; then
+    BACKREST_DATA=$(bashio::config "backrest_data_path")
+fi
+
+mkdir -p "${BACKREST_DATA}"
+
+export BACKREST_DATA
+export BACKREST_PORT
+export BACKREST_RESTIC_COMMAND="/usr/bin/restic"
+
+bashio::log.info "Starting Backrest on port ${BACKREST_PORT}, data at ${BACKREST_DATA}..."
+
+exec backrest

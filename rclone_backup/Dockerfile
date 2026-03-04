@@ -43,6 +43,8 @@ ENV RCLONE_INSTALLED_VERSION=1.72.1
 ENV RCLONE_WEBUI_INSTALLED_VERSION=2.0.5
 # renovate: datasource=github-releases depName=restic packageName=restic/restic
 ENV RESTIC_INSTALLED_VERSION=0.17.3
+# renovate: datasource=github-releases depName=backrest packageName=garethgeorge/backrest
+ENV BACKREST_INSTALLED_VERSION=1.12.0
 
 # Install fuse and kmod (so we can load fuse module on the host at startup)
 RUN apk add fuse kmod bzip2 \
@@ -101,6 +103,24 @@ RUN if [ "${BUILD_ARCH}" = "armhf" ]; then \
     && bzip2 -d /tmp/restic.bz2 \
     && mv /tmp/restic /usr/bin/restic \
     && chmod 755 /usr/bin/restic
+
+# Install backrest (not available for i386)
+RUN if [ "${BUILD_ARCH}" = "armhf" ]; then \
+        curl -LJo /tmp/backrest.tar.gz https://github.com/garethgeorge/backrest/releases/download/v"${BACKREST_INSTALLED_VERSION}"/backrest_Linux_armv6.tar.gz; \
+    elif [ "${BUILD_ARCH}" = "armv7" ]; then \
+        curl -LJo /tmp/backrest.tar.gz https://github.com/garethgeorge/backrest/releases/download/v"${BACKREST_INSTALLED_VERSION}"/backrest_Linux_armv6.tar.gz; \
+    elif [ "${BUILD_ARCH}" = "aarch64" ]; then \
+        curl -LJo /tmp/backrest.tar.gz https://github.com/garethgeorge/backrest/releases/download/v"${BACKREST_INSTALLED_VERSION}"/backrest_Linux_arm64.tar.gz; \
+    elif [ "${BUILD_ARCH}" = "amd64" ]; then \
+        curl -LJo /tmp/backrest.tar.gz https://github.com/garethgeorge/backrest/releases/download/v"${BACKREST_INSTALLED_VERSION}"/backrest_Linux_x86_64.tar.gz; \
+    else \
+        echo "Backrest not available for ${BUILD_ARCH}, skipping install"; \
+        exit 0; \
+    fi \
+    && tar -xzf /tmp/backrest.tar.gz -C /tmp \
+    && mv /tmp/backrest /usr/bin/backrest \
+    && chmod 755 /usr/bin/backrest \
+    && rm -f /tmp/backrest.tar.gz
 
 # add scheduler binary
 COPY --from=build /app/scheduler.bin /usr/bin/scheduler
