@@ -35,9 +35,9 @@ options:
       #   schedule: "0 5 * * *"
       #   run: "/config/scripts/backup-custom.sh"
   dry_run: true
-  config_path: "/homeassistant/rclone.conf"
+  config_path: "/homeassistant/rclone_backup/rclone.conf"
   disable_backrest: false
-  backrest_data_path: "/share/backrest"
+  backrest_data_path: "/homeassistant/rclone_backup/backrest"
 schema:
   jobs:
     - name: str?
