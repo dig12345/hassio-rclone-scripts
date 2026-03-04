@@ -16,17 +16,7 @@ if bashio::config.true "disable_backrest"; then
     exec sleep infinity
 fi
 
-BACKREST_PORT=9898
-BACKREST_DATA="/share/backrest"
-if bashio::config.has_value "backrest_data_path"; then
-    BACKREST_DATA=$(bashio::config "backrest_data_path")
-fi
-
-mkdir -p "${BACKREST_DATA}"
-
-export BACKREST_DATA
-export BACKREST_PORT
-export BACKREST_RESTIC_COMMAND="/usr/bin/restic"
+export BACKREST_PORT=9898
 
 bashio::log.info "Starting Backrest on port ${BACKREST_PORT}, data at ${BACKREST_DATA}..."
 

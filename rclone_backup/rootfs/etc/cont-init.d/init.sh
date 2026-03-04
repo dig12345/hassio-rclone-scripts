@@ -16,6 +16,15 @@ fi
 
 echo -n "$CONFIG_PATH" > /var/run/s6/container_environment/RCLONE_CONFIG
 
+# Set Backrest environment in container environment so it persists across service restarts
+BACKREST_DATA="/share/backrest"
+if bashio::config.has_value "backrest_data_path"; then
+    BACKREST_DATA=$(bashio::config "backrest_data_path")
+fi
+mkdir -p "${BACKREST_DATA}"
+echo -n "${BACKREST_DATA}" > /var/run/s6/container_environment/BACKREST_DATA
+echo -n "/usr/bin/restic" > /var/run/s6/container_environment/BACKREST_RESTIC_COMMAND
+
 # Load fuse kernel module so Web UI mount works (privileged addon shares host kernel)
 if modprobe fuse 2>/dev/null; then
   bashio::log.info "Loaded fuse kernel module"
