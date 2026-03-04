@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.1.0
+
+### ✨ Features
+
+* Add backrest web UI for restic ([879672b](https://github.com/dig12345/hassio-rclone-scripts/commit/879672b879b1d7ae5a6ad7f3891fca3054b5c427))
+
+
+### ⚙️ Continuous Integration
+
+* Trigger release workflow on push to main ([ebc5e9e](https://github.com/dig12345/hassio-rclone-scripts/commit/ebc5e9eb8f458ef80a60ecb8113239b51cb42bff))
+
+**Full Changelog**: [`v1.0.9...v1.1.0`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.0.9...v1.1.0)
+
 ## 1.0.9
 
 **Full Changelog**: [`v1.0.8...v1.0.9`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.0.8...v1.0.9)

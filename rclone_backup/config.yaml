@@ -1,6 +1,6 @@
 ---
 name: Rclone Backup
-version: 1.0.9
+version: 1.1.0
 slug: rclone_backup
 description: Automatically sync backup to remote locations using rclone
 arch:
@@ -33,10 +33,10 @@ options:
       include: []
       exclude: []
       flags: {}
-    # Example: run arbitrary command on a schedule (uncomment to use)
-    # - name: Custom script
-    #   schedule: "0 5 * * *"
-    #   run: "/config/scripts/backup-custom.sh"
+      # Example: run arbitrary command on a schedule (uncomment to use)
+      # - name: Custom script
+      #   schedule: "0 5 * * *"
+      #   run: "/config/scripts/backup-custom.sh"
   dry_run: true
   config_path: "/homeassistant/rclone.conf"
   disable_backrest: false
