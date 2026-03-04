@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.2
+
+### 🐛 Bug Fixes
+
+* Expose rclone web UI port 8099 ([0131354](https://github.com/dig12345/hassio-rclone-scripts/commit/0131354b23e73b6da0cb4e42f169a06ff89d8446))
+
+**Full Changelog**: [`v1.3.1...v1.3.2`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.3.1...v1.3.2)
+
 ## 1.3.1
 
 ### 🐛 Bug Fixes
