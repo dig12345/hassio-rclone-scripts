@@ -33,6 +33,7 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
+      actions: write
     steps:
       - name: "Checkout the repository"
         uses: actions/checkout@v6
@@ -61,7 +62,7 @@ jobs:
         run: |
           version=$(yq '.version' ${{ env.TARGET }}/config.yaml)
           if [ -n "${version}" ]; then
-            gh workflow run deploy.yaml --ref "v${version}" -f version="${version}"
+            gh workflow run deploy.yaml --ref main -f version="${version}"
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
