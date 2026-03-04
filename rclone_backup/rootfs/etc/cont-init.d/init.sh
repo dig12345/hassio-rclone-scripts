@@ -23,6 +23,7 @@ if bashio::config.has_value "backrest_data_path"; then
 fi
 mkdir -p "${BACKREST_DATA}"
 echo -n "${BACKREST_DATA}" > /var/run/s6/container_environment/BACKREST_DATA
+echo -n "${BACKREST_DATA}/config.json" > /var/run/s6/container_environment/BACKREST_CONFIG
 echo -n "/usr/bin/restic" > /var/run/s6/container_environment/BACKREST_RESTIC_COMMAND
 
 # Load fuse kernel module so Web UI mount works (privileged addon shares host kernel)
