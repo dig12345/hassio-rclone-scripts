@@ -17,10 +17,6 @@ if bashio::config.true "disable_backrest"; then
 fi
 
 BACKREST_PORT=9898
-if bashio::config.has_value "backrest_port"; then
-    BACKREST_PORT=$(bashio::config "backrest_port")
-fi
-
 BACKREST_DATA="/share/backrest"
 if bashio::config.has_value "backrest_data_path"; then
     BACKREST_DATA=$(bashio::config "backrest_data_path")

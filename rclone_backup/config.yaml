@@ -13,7 +13,8 @@ init: false
 url: https://github.com/dig12345/hassio-rclone-scripts
 homeassistant_api: true
 ingress: true
-panel_icon: mdi:cloud-sync
+ingress_port: 9898
+panel_icon: mdi:backup-restore
 map:
   - addons:rw
   - all_addon_configs:rw
@@ -40,7 +41,6 @@ options:
   dry_run: true
   config_path: "/homeassistant/rclone.conf"
   disable_backrest: false
-  backrest_port: 9898
   backrest_data_path: "/share/backrest"
 schema:
   jobs:
@@ -68,7 +68,6 @@ schema:
   run_once: bool?
   config_path: str?
   disable_backrest: bool?
-  backrest_port: int?
   backrest_data_path: str?
   rclone_config: str?
   no_rename: bool?
@@ -78,7 +77,6 @@ schema:
 image: ghcr.io/dig12345/hassio-rclone-scripts/{arch}
 ports:
   8098/tcp: 8098
-  9898/tcp: 9898
 devices:
   - /dev/fuse
 privileged:
