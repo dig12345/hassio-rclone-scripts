@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.2.0
+
+### ✨ Features
+
+* Switch ingress to Backrest UI ([fcb3769](https://github.com/dig12345/hassio-rclone-scripts/commit/fcb37694d0a086c6adac235439f45f28338d4202))
+
+
+### ⚙️ Continuous Integration
+
+* Auto-trigger deploy after release, add workflow_dispatch to deploy ([aca9711](https://github.com/dig12345/hassio-rclone-scripts/commit/aca9711fd17e3bd8db9604ee08cd8b2831053242))
+
+**Full Changelog**: [`v1.1.0...v1.2.0`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.1.0...v1.2.0)
+
 ## 1.1.0
 
 ### ✨ Features
