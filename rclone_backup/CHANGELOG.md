@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.0
+
+### ✨ Features
+
+* Reorganise all config and data under /homeassistant/rclone_backup ([484f994](https://github.com/dig12345/hassio-rclone-scripts/commit/484f994f3b1e59a1dd0295443b6797b3c9c5d566))
+
+
+### 🏗️ Chore
+
+* Drop all architectures except amd64 ([72a06b5](https://github.com/dig12345/hassio-rclone-scripts/commit/72a06b5ccf369c181d66b57f92b984c70a551a65))
+
+**Full Changelog**: [`v1.2.3...v1.3.0`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.2.3...v1.3.0)
+
 ## 1.2.3
 
 ### 🐛 Bug Fixes
