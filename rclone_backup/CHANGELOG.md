@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.2.1
+
+### 🐛 Bug Fixes
+
+* Write BACKREST_DATA to s6 container environment ([e94fdde](https://github.com/dig12345/hassio-rclone-scripts/commit/e94fdde832224514911312fb7118a46123d86257))
+
+
+### ⚙️ Continuous Integration
+
+* Add actions:write permission and fix deploy ref ([637c2e5](https://github.com/dig12345/hassio-rclone-scripts/commit/637c2e5ab08a945d016ff1f1e3cd5ab29c8e376c))
+
+**Full Changelog**: [`v1.2.0...v1.2.1`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.2.0...v1.2.1)
+
 ## 1.2.0
 
 ### ✨ Features
