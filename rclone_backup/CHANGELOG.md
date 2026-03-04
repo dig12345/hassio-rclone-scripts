@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.2
+
+### 🐛 Bug Fixes
+
+* Log BACKREST_DATA path on startup for debugging ([314c269](https://github.com/dig12345/hassio-rclone-scripts/commit/314c26930445bfc6ca98e042fd958cc8785adfcb))
+
+**Full Changelog**: [`v1.2.1...v1.2.2`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.2.1...v1.2.2)
+
 ## 1.2.1
 
 ### 🐛 Bug Fixes
