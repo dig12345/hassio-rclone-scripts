@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.1
+
+### 🐛 Bug Fixes
+
+* Add ingress_stream to fix backrest UI connectivity errors ([9d71931](https://github.com/dig12345/hassio-rclone-scripts/commit/9d71931e540bd3347acbc304f5d971cffc0bec0b))
+
+
+### 📚 Documentation
+
+* Update rclone.conf path references to new location ([b6d3ec2](https://github.com/dig12345/hassio-rclone-scripts/commit/b6d3ec2bf8465f40c5fdb425dc424117c7f63050))
+
+**Full Changelog**: [`v1.3.0...v1.3.1`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.3.0...v1.3.1)
+
 ## 1.3.0
 
 ### ✨ Features
