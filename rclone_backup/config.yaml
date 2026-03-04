@@ -4,11 +4,7 @@ version: 1.2.3
 slug: rclone_backup
 description: Automatically sync backup to remote locations using rclone
 arch:
-  - armhf
-  - armv7
-  - aarch64
   - amd64
-  - i386
 init: false
 url: https://github.com/dig12345/hassio-rclone-scripts
 homeassistant_api: true
