@@ -70,7 +70,7 @@ jobs:
     flags:
       min-age: 14d
 dry_run: false
-config_path: /homeassistant/rclone.conf
+config_path: /homeassistant/rclone_backup/rclone.conf
 ```
 
 ## Providers

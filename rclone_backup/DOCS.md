@@ -15,7 +15,7 @@ jobs:
     exclude: []
     flags: {}
 dry_run: false
-config_path: /homeassistant/rclone.conf
+config_path: /homeassistant/rclone_backup/rclone.conf
 ```
 
 ## Configuration
@@ -192,7 +192,7 @@ Port **8098** is exposed by the addon so you can use the Jobs UI or call the API
 
 The addon now supports ingress and the Rclone Web UI, you can access this by clicking the **Open Web UI** button in the addon info panel. You do not need a username or password and can just click the login button. Then you can click **Configs** -> **Create new config** to create a new remote.
 
-For more information, or to configure rclone without using the WebUI, you can consult the [rclone docs](https://rclone.org/docs/). The rclone config can be found at `/config/rclone.conf` by default.
+For more information, or to configure rclone without using the WebUI, you can consult the [rclone docs](https://rclone.org/docs/). The rclone config can be found at `/homeassistant/rclone_backup/rclone.conf` by default.
 
 ---
 
