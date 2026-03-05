@@ -50,7 +50,7 @@ jobs:
         run: corepack enable && pnpm dlx @jcwillox/semantic-release-config
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SEMANTIC_RELEASE_GITHUB_DRAFT: ${{ inputs.draft }}
+          SEMANTIC_RELEASE_GITHUB_DRAFT: 'true'
           SEMANTIC_RELEASE_FORCE_RELEASE: ${{ inputs.release_type }}
           SEMANTIC_RELEASE_CHANGELOG_FILE: "${{ env.TARGET }}/CHANGELOG.md"
           SEMANTIC_RELEASE_CMD_GENERATE_NOTES: "yq -i '.version = \"${nextRelease.version}\"' ${{ env.TARGET }}/config.yaml"

@@ -4,8 +4,6 @@ concurrency:
   group: queue
 
 on:
-  release:
-    types: [published]
   workflow_dispatch:
     inputs:
       version:
@@ -140,3 +138,16 @@ jobs:
           run: |
             rm -rf /tmp/.docker-cache
             mv /tmp/.docker-cache-new /tmp/.docker-cache
+
+  publish:
+    name: "📢 Publish Release"
+    needs: [information, deploy]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: "📢 Publish GitHub release"
+        run: gh release edit "v${{ needs.information.outputs.version }}" --draft=false --latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
