@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.5
+
+### 🐛 Bug Fixes
+
+* Remove ingress_stream to prevent nginx worker exhaustion during backups ([ca85491](https://github.com/dig12345/hassio-rclone-scripts/commit/ca8549102a0b948357a7ee5a7b927c99bf9f03e2))
+
+
+### ⚙️ Continuous Integration
+
+* Publish release only after image is built and pushed ([b2b362e](https://github.com/dig12345/hassio-rclone-scripts/commit/b2b362ec40b40de08a2237a67a3109cbf9b9ecdc))
+
+**Full Changelog**: [`v1.3.4...v1.3.5`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.3.4...v1.3.5)
+
 ## 1.3.4
 
 ### 🐛 Bug Fixes
