@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.0
+
+### ✨ Features
+
+* Remove Jobs API and UI ([1a05567](https://github.com/dig12345/hassio-rclone-scripts/commit/1a05567ed4759543a45f82a5b449153014334099))
+
+**Full Changelog**: [`v1.3.5...v1.4.0`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.3.5...v1.4.0)
+
 ## 1.3.5
 
 ### 🐛 Bug Fixes
