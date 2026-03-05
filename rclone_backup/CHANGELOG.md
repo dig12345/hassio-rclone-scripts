@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.6.0
+
+### ✨ Features
+
+* Expose backrest on port 8098 via socat forwarder ([2cf810e](https://github.com/dig12345/hassio-rclone-scripts/commit/2cf810efc670ebae017791bb0dd2b84955b7b72e))
+
+**Full Changelog**: [`v1.5.0...v1.6.0`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.5.0...v1.6.0)
+
 ## 1.5.0
 
 ### ✨ Features
