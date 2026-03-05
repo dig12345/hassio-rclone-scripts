@@ -46,10 +46,7 @@ ENV RESTIC_INSTALLED_VERSION=0.17.3
 # renovate: datasource=github-releases depName=backrest packageName=garethgeorge/backrest
 ENV BACKREST_INSTALLED_VERSION=1.12.0
 
-# Install fuse and kmod (so we can load fuse module on the host at startup)
-RUN apk add fuse kmod bzip2 \
-    && sed -i 's/#user_allow_other/user_allow_other/' /etc/fuse.conf \
-    && ln -s /bin/fusermount /bin/fusermount3
+RUN apk add bzip2
 
 # Copy root filesystem
 COPY rootfs /

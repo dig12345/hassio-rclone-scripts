@@ -47,10 +47,3 @@ mkdir -p "${BACKREST_DATA}"
 echo -n "${BACKREST_DATA}"   > /var/run/s6/container_environment/BACKREST_DATA
 echo -n "${BACKREST_CONFIG}" > /var/run/s6/container_environment/BACKREST_CONFIG
 echo -n "/usr/bin/restic"    > /var/run/s6/container_environment/BACKREST_RESTIC_COMMAND
-
-# Load fuse kernel module so Web UI mount works (privileged addon shares host kernel)
-if modprobe fuse 2>/dev/null; then
-  bashio::log.info "Loaded fuse kernel module"
-else
-  bashio::log.warning "Could not load fuse module (Web UI mount may fail); on the host run: modprobe fuse"
-fi
