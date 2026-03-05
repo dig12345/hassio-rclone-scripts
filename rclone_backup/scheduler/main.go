@@ -129,12 +129,6 @@ func main() {
 
 	PrintJobs(config.Jobs)
 
-	// Build runnables for on-demand execution via API
-	runnables := make([]func(), len(config.Jobs))
-	for i, job := range config.Jobs {
-		runnables[i] = CreateJob(job)
-	}
-
 	if config.RunOnce {
 		for _, job := range config.Jobs {
 			if job.Schedule == "" {
@@ -142,18 +136,15 @@ func main() {
 			}
 		}
 	} else {
-		// Start Jobs API and UI for "Run now" buttons
-		StartAPIServer(runnables)
-
 		// only run 1 job at a time to prevent issues with file locks
 		scheduler, err := gocron.NewScheduler(gocron.WithLimitConcurrentJobs(1, gocron.LimitModeWait))
 		if err != nil {
 			Fatalln("failed to create scheduler", err)
 		}
 
-		for i, job := range config.Jobs {
+		for _, job := range config.Jobs {
 			if job.Schedule != "" {
-				r := runnables[i]
+				r := CreateJob(job)
 				_, err = scheduler.NewJob(gocron.CronJob(job.Schedule, false), gocron.NewTask(r))
 				if err != nil {
 					Fatalln("failed to schedule job", "'"+job.Name+"'", err)
@@ -162,9 +153,9 @@ func main() {
 		}
 
 		// run all immediate jobs (no schedule = run at startup)
-		for i, job := range config.Jobs {
+		for _, job := range config.Jobs {
 			if job.Schedule == "" {
-				runnables[i]()
+				CreateJob(job)()
 			}
 		}
 
