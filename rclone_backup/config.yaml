@@ -10,7 +10,6 @@ url: https://github.com/dig12345/hassio-rclone-scripts
 homeassistant_api: true
 ingress: true
 ingress_port: 9898
-ingress_stream: true
 panel_icon: mdi:backup-restore
 map:
   - addons:rw
@@ -37,6 +36,7 @@ options:
       #   run: "/config/scripts/backup-custom.sh"
   dry_run: true
   config_path: "/homeassistant/rclone_backup/rclone.conf"
+  bwlimit: ""
   disable_backrest: false
   backrest_data_path: "/homeassistant/rclone_backup/backrest"
 schema:
@@ -64,6 +64,7 @@ schema:
     - str?
   run_once: bool?
   config_path: str?
+  bwlimit: str?
   disable_backrest: bool?
   backrest_data_path: str?
   rclone_config: str?

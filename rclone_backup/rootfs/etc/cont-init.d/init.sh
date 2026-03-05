@@ -27,6 +27,10 @@ fi
 mkdir -p "$(dirname "${CONFIG_PATH}")"
 echo -n "$CONFIG_PATH" > /var/run/s6/container_environment/RCLONE_CONFIG
 
+if bashio::config.has_value "bwlimit"; then
+    echo -n "$(bashio::config "bwlimit")" > /var/run/s6/container_environment/RCLONE_BWLIMIT
+fi
+
 # --- backrest config and data (all in HA config dir so HA backups cover it) ---
 BACKREST_DATA="/homeassistant/rclone_backup/backrest"
 if bashio::config.has_value "backrest_data_path"; then
