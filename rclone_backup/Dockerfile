@@ -46,7 +46,7 @@ ENV RESTIC_INSTALLED_VERSION=0.17.3
 # renovate: datasource=github-releases depName=backrest packageName=garethgeorge/backrest
 ENV BACKREST_INSTALLED_VERSION=1.12.0
 
-RUN apk add bzip2
+RUN apk add bzip2 socat
 
 # Copy root filesystem
 COPY rootfs /

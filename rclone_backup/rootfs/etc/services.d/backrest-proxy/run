@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bashio
+# Forward port 8098 -> backrest on 9898 for direct host access
+
+if bashio::config.true "disable_backrest"; then
+    exec sleep infinity
+fi
+
+exec socat TCP-LISTEN:8098,fork,reuseaddr TCP:127.0.0.1:9898
