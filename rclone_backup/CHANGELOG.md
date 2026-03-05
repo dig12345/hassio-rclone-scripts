@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.4
+
+### 🐛 Bug Fixes
+
+* Remove FUSE to prevent Supervisor network interference ([f79b2ac](https://github.com/dig12345/hassio-rclone-scripts/commit/f79b2ac2fef9c77b4ff28a02b14b64ab9fc13f50))
+
+**Full Changelog**: [`v1.3.3...v1.3.4`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.3.3...v1.3.4)
+
 ## 1.3.3
 
 ### 🐛 Bug Fixes
