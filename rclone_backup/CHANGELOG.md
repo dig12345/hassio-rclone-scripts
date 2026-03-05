@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.0
+
+### ✨ Features
+
+* Expose backrest on port 9898 ([cd1246b](https://github.com/dig12345/hassio-rclone-scripts/commit/cd1246b5b979df96d342421a5ab908f77e941334))
+
+**Full Changelog**: [`v1.4.0...v1.5.0`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.4.0...v1.5.0)
+
 ## 1.4.0
 
 ### ✨ Features
