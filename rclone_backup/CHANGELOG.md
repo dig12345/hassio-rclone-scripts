@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.7.0
+
+### ✨ Features
+
+* Add ports_description for backrest and rclone web UIs ([74427eb](https://github.com/dig12345/hassio-rclone-scripts/commit/74427ebe27a79b5f3ab102c6f27773372f7ba33d))
+
+**Full Changelog**: [`v1.6.1...v1.7.0`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.6.1...v1.7.0)
+
 ## 1.6.1
 
 ### 🐛 Bug Fixes
