@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.6.1
+
+### 🐛 Bug Fixes
+
+* Suppress rclone log level to prevent Supervisor event loop flooding ([35e58a6](https://github.com/dig12345/hassio-rclone-scripts/commit/35e58a6fcc3c23ddc6b2aa6d101f77452edf598e))
+
+**Full Changelog**: [`v1.6.0...v1.6.1`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.6.0...v1.6.1)
+
 ## 1.6.0
 
 ### ✨ Features
