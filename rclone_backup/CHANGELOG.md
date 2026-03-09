@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.7.1
+
+### ♻️ Refactoring
+
+* Expose backrest and rclone ports directly, remove socat proxy ([3f9c01c](https://github.com/dig12345/hassio-rclone-scripts/commit/3f9c01c6c61007a4f536b27a3be892ec0666a006))
+
+
+### 🚦 Test
+
+* Remove ingress to expose direct port access in Network tab ([3b1fcc9](https://github.com/dig12345/hassio-rclone-scripts/commit/3b1fcc9ff5659716d427a0e5277bb855f7ba2986))
+
+**Full Changelog**: [`v1.7.0...v1.7.1`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.7.0...v1.7.1)
+
 ## 1.7.0
 
 ### ✨ Features
