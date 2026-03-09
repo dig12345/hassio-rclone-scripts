@@ -71,8 +71,8 @@ schema:
   log_level: list(debug|info|warning|error|fatal)?
 image: ghcr.io/dig12345/hassio-rclone-scripts/{arch}
 ports:
-  8098/tcp: 8098
-  8097/tcp: 8099
+  9898/tcp: 9898
+  9897/tcp: 9897
 ports_description:
-  8098/tcp: Backrest Web UI (direct access)
-  8097/tcp: Rclone Web UI (direct access)
+  9898/tcp: Backrest Web UI
+  9897/tcp: Rclone Web UI
