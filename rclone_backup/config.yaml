@@ -8,9 +8,6 @@ arch:
 init: false
 url: https://github.com/dig12345/hassio-rclone-scripts
 homeassistant_api: true
-ingress: true
-ingress_port: 9898
-panel_icon: mdi:backup-restore
 map:
   - addons:rw
   - all_addon_configs:rw
