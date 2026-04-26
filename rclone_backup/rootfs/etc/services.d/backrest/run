@@ -17,6 +17,9 @@ if bashio::config.true "disable_backrest"; then
 fi
 
 export BACKREST_PORT=9898
+# Suppress rclone verbosity to prevent Docker log flooding from overwhelming
+# the Supervisor's asyncio event loop during heavy backrest backups
+export RCLONE_LOG_LEVEL=ERROR
 
 bashio::log.info "Starting Backrest on port ${BACKREST_PORT}, data at ${BACKREST_DATA}..."
 

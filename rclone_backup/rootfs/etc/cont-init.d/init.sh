@@ -31,10 +31,6 @@ if bashio::config.has_value "bwlimit"; then
     echo -n "$(bashio::config "bwlimit")" > /var/run/s6/container_environment/RCLONE_BWLIMIT
 fi
 
-# Suppress rclone verbosity to prevent Docker log flooding from overwhelming
-# the Supervisor's asyncio event loop during heavy backrest backups
-echo -n "ERROR" > /var/run/s6/container_environment/RCLONE_LOG_LEVEL
-
 # --- backrest config and data (all in HA config dir so HA backups cover it) ---
 BACKREST_DATA="/homeassistant/rclone_backup/backrest"
 if bashio::config.has_value "backrest_data_path"; then
