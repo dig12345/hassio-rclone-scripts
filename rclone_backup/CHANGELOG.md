@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.7.2
+
+### 🐛 Bug Fixes
+
+* Scope RCLONE_LOG_LEVEL to backrest service to fix conflict with --verbose in scheduler ([c6b3e86](https://github.com/dig12345/hassio-rclone-scripts/commit/c6b3e86b32fac98ec8ce38a6cc529ac77a6a74fb))
+
+**Full Changelog**: [`v1.7.1...v1.7.2`](https://github.com/dig12345/hassio-rclone-scripts/compare/v1.7.1...v1.7.2)
+
 ## 1.7.1
 
 ### ♻️ Refactoring
